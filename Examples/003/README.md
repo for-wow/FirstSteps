@@ -38,7 +38,7 @@ The object is created with a fixed size. I was able to change the size using the
 
 ### 3. Start cooldown animation:
 
-To start the animation, use call to function `CooldownFrame_SetTimer`. The declaration of this function can be found [here](https://www.townlong-yak.com/framexml/1.12.1/Cooldown.lua#2). For example, let's set the cooldown time to 10 seconds:
+To start the animation, use call to "CooldownFrame_SetTimer" function. The declaration of this function can be found [here](https://www.townlong-yak.com/framexml/1.12.1/Cooldown.lua#2). For example, let's set the cooldown time to 10 seconds:
 ```
 CooldownFrame_SetTimer(myCooldown, GetTime(), 10, 1)
 ```
@@ -65,3 +65,8 @@ Animation on screen:
 
 ![Image-01](img/01.png)
 
+This object has the feature - After the circle animation is completed, the highlight animation starts:
+
+![Image-02](img/02.png)
+
+If you want to remove the flare animation, then you will need to write your own function similar to "[CooldownFrame_OnUpdateModel](https://www.townlong-yak.com/framexml/1.12.1/Cooldown.lua#14)" (but not rewrite it, otherwise it will break the spell cooldown animations).
