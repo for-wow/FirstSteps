@@ -1,4 +1,4 @@
-# Example 2 - Change PVP status icon
+# First Steps: Example 2 - Change PVP status icon
 
 **I don't speak English. It's google translate. Sorry.**
 
