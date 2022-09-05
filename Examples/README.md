@@ -1,3 +1,3 @@
 # Examples
 
-Example 1 - Temporary Boost Notifications
+Example 1 - Notification of received temporary boost
