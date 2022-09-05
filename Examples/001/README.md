@@ -1,4 +1,4 @@
-# Example 1 - Notification of received temporary boost
+# First Steps: Example 1 - Notification of received temporary boost
 
 **I don't speak English. It's google translate. Sorry.**
 
