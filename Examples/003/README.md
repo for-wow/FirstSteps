@@ -15,7 +15,7 @@ This object can work correctly if you don't give it a global name. Or you can us
 CreateFrame('MODEL', 'myCooldown', <ParentFrame>, 'CooldownFrameTemplate')
 ```
 
-### 2. Set position and size for cooldown animation object.
+### 2. Set position and size for cooldown animation object:
 
 Typically, the position and size is set like this:
 ```
@@ -36,15 +36,32 @@ local myCooldown = CreateFrame('MODEL', nil, frame, 'CooldownFrameTemplate')
 ```
 The object is created with a fixed size. I was able to change the size using the "SetModelScale" function. This function works like scaling, for example `myCooldown:SetModelScale(1.5)` means that the object will become one and a half times larger (compared to standard size).
 
-### 3. Start cooldown animation.
+### 3. Start cooldown animation:
 
-To start the animation, use call to function `CooldownFrame_SetTimer`. The declaration of this function can be found [here](https://www.townlong-yak.com/framexml/1.12.1/Cooldown.lua#2).
+To start the animation, use call to function `CooldownFrame_SetTimer`. The declaration of this function can be found [here](https://www.townlong-yak.com/framexml/1.12.1/Cooldown.lua#2). For example, let's set the cooldown time to 10 seconds:
 ```
 CooldownFrame_SetTimer(myCooldown, GetTime(), 10, 1)
 ```
 The first parameter is the cooldown object. The second parameter is the start time. The third parameter is the duration of the cooldown animation. The fourth parameter must be a number greater than zero to start the animation.
 
+Using this example, you can see the animation if you enter the `/test` command:
+```
+local frame = CreateFrame('FRAME')
+frame:SetBackdrop({bgFile = 'Interface\\Tooltips\\UI-Tooltip-Background'})
+frame:SetBackdropColor(0, 1, 0, 1)
+frame:SetPoint('CENTER', UIParent)
+frame:SetWidth(200)
+frame:SetHeight(200)
 
+local myCooldown = CreateFrame('MODEL', nil, frame, 'CooldownFrameTemplate')
+myCooldown:SetModelScale(1.5)
 
+SLASH_TEST1 = '/test'
+function SlashCmdList.TEST()
+    CooldownFrame_SetTimer(myCooldown, GetTime(), 10, 1)
+end
+```
+Animation on screen:
 
+![Image-01](img/01.png)
 
