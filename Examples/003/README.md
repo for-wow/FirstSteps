@@ -69,4 +69,35 @@ This object has the feature - After the circle animation is completed, the highl
 
 ![Image-02](img/02.png)
 
-If you want to remove the flare animation, then you will need to write your own function similar to "[CooldownFrame_OnUpdateModel](https://www.townlong-yak.com/framexml/1.12.1/Cooldown.lua#14)" (but not rewrite it, otherwise it will break the spell cooldown animations).
+If you want to remove the highlight animation, then you will need to write your own function similar to "[CooldownFrame_OnUpdateModel](https://www.townlong-yak.com/framexml/1.12.1/Cooldown.lua#14)" (but not rewrite it, otherwise it will break the spell cooldown animations). It seems to look like this:
+```
+local frame = CreateFrame('FRAME')
+frame:SetBackdrop({bgFile = 'Interface\\Tooltips\\UI-Tooltip-Background'})
+frame:SetBackdropColor(0, 1, 0, 1)
+frame:SetPoint('CENTER', UIParent)
+frame:SetWidth(200)
+frame:SetHeight(200)
+
+local myCooldown = CreateFrame('MODEL', nil, frame, 'CooldownFrameTemplate')
+myCooldown:SetScript('OnUpdateModel', function() myCooldown_OnUpdateModel() end)
+myCooldown:SetModelScale(1.5)
+
+function myCooldown_OnUpdateModel()
+    if this.stopping == 0 then
+        local finished = (GetTime() - this.start) / this.duration
+        if finished < 1.0 then
+            local time = finished * 1000
+            this:SetSequenceTime(0, time)
+            return
+        end
+        this.stopping = 1
+    else
+        this:AdvanceTime()
+    end
+end
+
+SLASH_TEST1 = '/test'
+function SlashCmdList.TEST()
+    CooldownFrame_SetTimer(myCooldown, GetTime(), 10, 1)
+end
+```
