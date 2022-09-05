@@ -128,7 +128,7 @@ end)
 ```
 Let's replace the contents of the "Example1.lua" file and enter the "/run ReloadUI()" command in the game to update. And use the ability. In the chat we see:
 
-![Image-01](01.png)
+![Image-01](img/01.png)
 
 *It took approximately 1 hour 40 minutes to write the guide to this point.*
 
@@ -175,7 +175,7 @@ You may see `SetPoint('CENTER')` in various documentations and articles, but thi
 
 Both code `t:SetPoint('CENTER', UIParent)` and code `t:SetPoint('CENTER', 0, 0)` give the following result:
 
-![Image-02](02.png)
+![Image-02](img/02.png)
 
 Move the texture of the icon higher so that it does not block the character.
 
@@ -199,7 +199,7 @@ t:SetPoint('CENTER', UIParent, 0, 70) -- or t:SetPoint('CENTER', 0, 70)
 t:SetWidth(64)
 t:SetHeight(64)
 ```
-![Image-03](03.png)
+![Image-03](img/03.png)
 
 Now let's make it so that this texture is displayed only during the "Blood Fury" ability.
 
@@ -256,7 +256,7 @@ f:SetScript('OnEvent', function()
     end
 end)
 ```
-![Image-04](04.png)
+![Image-04](img/04.png)
 
 Now let's add the texture of the icon as a child element. In this example, the texture will be the variable `texture` included in the table `frame`.
 
@@ -288,7 +288,7 @@ frame.texture:SetWidth(64)
 frame.texture:SetHeight(64)
 frame.texture:Hide()
 ```
-![Image-05](05.png)
+![Image-05](img/05.png)
 
 But this can be done in various ways, for example: `frame:CreateTexture('GlobalTexture', 'ARTWORK')`.
 
@@ -297,12 +297,12 @@ But this can be done in various ways, for example: `frame:CreateTexture('GlobalT
 
 For example, if we want the left side of the texture to be pressed against the left side of the frame: `SetPoint('LEFT', frame, 'LEFT')`
 
-![Image-06](06.png)
+![Image-06](img/06.png)
 
 We can move the texture outside of the frame.<br>
 Push the left side of the texture to the right side of the frame and to the top: `SetPoint('TOPLEFT', frame, 'TOPRIGHT')`
 
-![Image-07](07.png)
+![Image-07](img/07.png)
 
 If the sides are the same (for example, push the top of the texture to the top of the frame), then the third parameter can be omitted.
 
@@ -357,7 +357,7 @@ frame.texture:SetWidth(64)
 frame.texture:SetHeight(64)
 frame.texture:Hide()
 ```
-![Image-08](08.png)
+![Image-08](img/08.png)
 
 To make it more beautiful, you can increase the indent between the line and the texture:
 ```
@@ -370,7 +370,7 @@ frame.title = frame:CreateFontString(nil, 'OVERLAY', 'GameFontHighlightLarge')
 Types of strings that are used in the game: https://www.townlong-yak.com/framexml/1.12.1/Fonts.xml<br>
 And remove the green background from the frame. Now it looks like this:
 
-![Image-09](09.png)
+![Image-09](img/09.png)
 
 Now we would like to use not a random icon, but an ability icon.
 
@@ -466,7 +466,7 @@ frame.texture:SetWidth(64)
 frame.texture:SetHeight(64)
 frame.texture:Hide()
 ```
-![Image-10](10.png)
+![Image-10](img/10.png)
 
 *It took me about 1 hour to write this paragraph.*
 
@@ -545,7 +545,7 @@ function ShowTimer(duration, string)
     string:Show()
 end
 ```
-![Image-11](11.png)
+![Image-11](img/11.png)
 
 ---
 
