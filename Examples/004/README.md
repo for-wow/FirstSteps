@@ -30,7 +30,7 @@ end
 ```
 I run the code, check it and see the standard tooltip:
 
-![Image-1](img/1.png)
+![Image-1](img/01.png)
 
 4. Since I repeated the parameters of the original function, in the new function I can get the value of the "bag number" and "cell number in the bag" parameters and use these parameters to get the ItemLink value:
 ```
@@ -67,7 +67,7 @@ end
 ```
 I run the code, check it and see that my string has been added to the standard tooltip. But the dimensions of the tooltip have remained standard and my string is outside the tooltip:
 
-![Image-2](img/2.png)
+![Image-2](img/02.png)
 
 7. To fix this, I can calculate how many pixels to increase the height of the tooltip and set a new height for it, or I can call the GameTooltip:Show() function, which automatically sets the tooltip to the height according to its content  and shows the tooltip:
 ```
@@ -85,4 +85,4 @@ end
 
 I run the code, check it and see the modified tooltip:
 
-![Image-3](img/3.png)
+![Image-3](img/03.png)
