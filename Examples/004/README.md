@@ -36,8 +36,8 @@ I run the code, check it and see the standard tooltip:
 ```
 local HookSetBagItem = GameTooltip.SetBagItem
 function GameTooltip.SetBagItem(self, container, slot)
-	HookSetBagItem(self, container, slot)
-	local ItemLink = GetContainerItemLink(container, slot)
+    HookSetBagItem(self, container, slot)
+    local ItemLink = GetContainerItemLink(container, slot)
 end
 ```
 
@@ -45,11 +45,11 @@ end
 ```
 local HookSetBagItem = GameTooltip.SetBagItem
 function GameTooltip.SetBagItem(self, container, slot)
-	HookSetBagItem(self, container, slot)
-	local ItemLink = GetContainerItemLink(container, slot)
-	if ItemLink then
-		local _, _, ItemString = strfind(ItemLink, "|H(.+)%[")
-	end
+    HookSetBagItem(self, container, slot)
+    local ItemLink = GetContainerItemLink(container, slot)
+    if ItemLink then
+        local _, _, ItemString = strfind(ItemLink, "|H(.+)%[")
+    end
 end
 ```
 
@@ -58,11 +58,11 @@ end
 local HookSetBagItem = GameTooltip.SetBagItem
 function GameTooltip.SetBagItem(self, container, slot)
 HookSetBagItem(self, container, slot)
-	local ItemLink = GetContainerItemLink(container, slot)
-	if ItemLink then
-		local _, _, ItemString = strfind(ItemLink, "|H(.+)%[")
-		GameTooltip:AddLine("|n" .. ItemString, 1, 1, 1)
-	end
+    local ItemLink = GetContainerItemLink(container, slot)
+    if ItemLink then
+        local _, _, ItemString = strfind(ItemLink, "|H(.+)%[")
+        GameTooltip:AddLine("|n" .. ItemString, 1, 1, 1)
+    end
 end
 ```
 I run the code, check it and see that my string has been added to the standard tooltip. But the dimensions of the tooltip have remained standard and my string is outside the tooltip:
@@ -73,13 +73,13 @@ I run the code, check it and see that my string has been added to the standard t
 ```
 local HookSetBagItem = GameTooltip.SetBagItem
 function GameTooltip.SetBagItem(self, container, slot)
-	HookSetBagItem(self, container, slot)
-	local ItemLink = GetContainerItemLink(container, slot)
-	if ItemLink then
-		local _, _, ItemString = strfind(ItemLink, "|H(.+)%[")
-		GameTooltip:AddLine("|n" .. ItemString, 1, 1, 1)
-		GameTooltip:Show()
-	end
+    HookSetBagItem(self, container, slot)
+    local ItemLink = GetContainerItemLink(container, slot)
+    if ItemLink then
+        local _, _, ItemString = strfind(ItemLink, "|H(.+)%[")
+        GameTooltip:AddLine("|n" .. ItemString, 1, 1, 1)
+        GameTooltip:Show()
+    end
 end
 ```
 
